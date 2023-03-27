@@ -1,0 +1,15 @@
+.container {
+  /* position: absolute; */
+  display: block;
+  float: left;
+  /* height: 30 rem; */
+
+  width: 80%;
+  margin: 2rem 10%;
+  height: 500px;
+  max-width: 60rem;
+
+  /* box-sizing: border-box; */
+
+  background-color: #515186;
+}
