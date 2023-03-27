@@ -1,0 +1,17 @@
+.footer {
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(137, 43, 226, 0.059);
+  border: 30px;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+.text {
+  font-family: 'Courier New', Courier, monospace;
+  color: rgba(137, 43, 226, 0.909);
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(158, 75, 236);
+}

@@ -3,6 +3,7 @@ import InputContainer from './components/input/InputContainer';
 import Header from './components/layout/Header';
 
 import classes from './App.module.css';
+import Footer from './components/layout/Footer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <ChatContainer />
       <InputContainer />
+      <Footer />
     </div>
   );
 }
