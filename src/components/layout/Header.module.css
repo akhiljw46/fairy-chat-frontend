@@ -19,7 +19,7 @@
   width: 15%;
   height: auto;
   margin: auto;
-  display: block;
+  display: inline-block;
   padding: 2rem;
 
   /* display: blo; */

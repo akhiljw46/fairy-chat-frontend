@@ -5,14 +5,14 @@
   /* height: 30 rem; */
 
   width: 80%;
-  margin: 2rem 10%;
+  margin: 10px 10%;
   height: 500px;
-  max-width: 60rem;
+  /* max-width: 60rem; */
   overflow: auto;
 
   /* box-sizing: border-box; */
 
-  background-color: #2e1d6040;
+  background-color: #2e1d6033;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
