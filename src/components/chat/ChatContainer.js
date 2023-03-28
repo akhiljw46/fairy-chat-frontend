@@ -6,7 +6,7 @@ import ChatMessages from './ChatMessages';
 
 const ChatContainer = () => {
   const messagesCtx = useContext(MessageContext);
-  const messages = messagesCtx.map((message) => (
+  const messages = messagesCtx.messages.map((message) => (
     <ChatBubble
       key={message.id}
       text={message.messageText}
@@ -15,11 +15,9 @@ const ChatContainer = () => {
   ));
 
   return (
-    // <MessageContext.Provider value={messages}>
     <section className={classes.container}>
       <ChatMessages>{messages}</ChatMessages>
     </section>
-    // </MessageContext.Provider>
   );
 };
 

@@ -1,7 +1,8 @@
 import classes from './InputText.module.css';
+import { forwardRef } from 'react';
 
-const InputText = (props) => {
-  return <input className={classes.input} type="text" />;
-};
+const InputText = forwardRef((props, ref) => {
+  return <input ref={ref} className={classes.input} type="text" />;
+});
 
 export default InputText;

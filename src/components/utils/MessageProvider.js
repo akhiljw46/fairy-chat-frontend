@@ -1,8 +1,31 @@
 import { useState } from 'react';
 import MessageContext from './message-context';
 
+const DummyMessages = [
+  {
+    id: 'm1',
+    isUser: true,
+    messageText: 'Hello',
+  },
+  {
+    id: 'm2',
+    isUser: false,
+    messageText: 'Yes, how can I help you?',
+  },
+  {
+    id: 'm3',
+    isUser: true,
+    messageText: 'Can you tell me who is Akhil?',
+  },
+  {
+    id: 'm4',
+    isUser: false,
+    messageText: 'Akhil is a boy who lives in his own world!',
+  },
+];
+
 const MessageProvider = (props) => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(DummyMessages);
 
   const addMessageHandler = (message) =>
     setMessages((prevMessages) => [...prevMessages, message]);
