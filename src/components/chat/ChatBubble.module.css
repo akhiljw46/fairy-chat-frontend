@@ -16,7 +16,7 @@
   /* background-color: aliceblue; */
 }
 
-.user {
+.ai {
   /* float: left; */
   /* text-align: left; */
   justify-content: flex-start;
@@ -29,17 +29,17 @@ p {
   box-shadow: 3px 10px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
-.user p {
+.ai p {
   background-color: #5b8fb9;
 }
 
-.ai {
+.user {
   /* float: right; */
   /* text-align: right; */
   justify-content: flex-end;
   /* background-color: rgb(191, 143, 143); */
 }
 
-.ai p {
+.user p {
   background-color: #b6eada;
 }
