@@ -12,13 +12,13 @@ const InputContainer = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(inputRef.current.value);
 
     messageCtx.addMessage({
       id: Date.now(),
       isUser: true,
       messageText: inputRef.current.value,
     });
+    inputRef.current.value = '';
   };
 
   return (
