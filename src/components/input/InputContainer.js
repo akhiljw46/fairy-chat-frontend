@@ -40,8 +40,8 @@ const InputContainer = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    if (isLoading) return;
     const messageText = inputRef.current.value;
+    if (isLoading || messageText.trim() === '') return;
 
     messageCtx.addMessage({
       id: Date.now(),
