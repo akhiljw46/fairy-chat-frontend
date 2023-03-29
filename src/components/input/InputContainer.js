@@ -34,7 +34,7 @@ const InputContainer = () => {
 
       const data = await response.json();
       setIsLoading(false);
-      return data;
+      return data.message;
     } catch (error) {}
   };
 
@@ -48,7 +48,13 @@ const InputContainer = () => {
       messageText,
     });
     inputRef.current.value = '';
-    console.log(await fetchMessage(messageText));
+    const aiResponse = await fetchMessage(messageText);
+
+    messageCtx.addMessage({
+      id: Date.now(),
+      isUser: false,
+      messageText: aiResponse,
+    });
   };
 
   return (
