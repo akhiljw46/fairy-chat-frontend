@@ -35,7 +35,10 @@ const InputContainer = () => {
       const data = await response.json();
       setIsLoading(false);
       return data.message;
-    } catch (error) {}
+    } catch (error) {
+      setError(error.message);
+      console.log('Something went Wrong!', error);
+    }
   };
 
   const submitHandler = async (event) => {
