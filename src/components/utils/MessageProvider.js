@@ -27,8 +27,10 @@ const DummyMessages = [
 const MessageProvider = (props) => {
   const [messages, setMessages] = useState(DummyMessages);
 
-  const addMessageHandler = (message) =>
+  const addMessageHandler = (message) => {
+    if (!message.messageText) return;
     setMessages((prevMessages) => [...prevMessages, message]);
+  };
 
   const messageContext = {
     messages,

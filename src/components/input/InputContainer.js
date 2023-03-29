@@ -32,12 +32,19 @@ const InputContainer = () => {
         throw new Error('Request failed!');
       }
 
+      const reqestTimeoutTimer = setTimeout(() => {
+        setIsLoading(false);
+        throw new Error('Request Timeout');
+      }, 1000 * 60 * 2);
+
       const data = await response.json();
       setIsLoading(false);
+      clearTimeout(reqestTimeoutTimer);
       return data.message;
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err.message);
       console.log('Something went Wrong!', error);
+      setIsLoading(false);
     }
   };
 
