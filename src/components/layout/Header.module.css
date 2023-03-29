@@ -16,11 +16,11 @@
 }
 
 .logo {
-  width: 15%;
+  width: 20%;
   height: auto;
   margin: auto;
   display: inline-block;
-  padding: 2rem;
+  /* padding: 2rem; */
 
   /* display: blo; */
   /* padding: 45%; */
