@@ -9,8 +9,9 @@
   /* display: block; */
   /* max-width: 30rem; */
   /* max-height: 350px; */
-  border: 10px;
+  /* border: 10px; */
   padding: 5px;
+  margin: 10px;
   display: flex;
   text-align: left;
   /* margin: 5px; */
@@ -24,13 +25,13 @@
   /* background-color: rgb(179, 189, 189); */
 }
 
-p {
-  padding: 5px 30px;
+.out-para {
+  padding: 0 20px;
   border-radius: 10px;
   box-shadow: 3px 10px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
-.ai p {
+.ai .out-para {
   background-color: #5b8fb9;
 }
 
@@ -41,6 +42,10 @@ p {
   /* background-color: rgb(191, 143, 143); */
 }
 
-.user p {
+.user .out-para {
   background-color: #b6eada;
+}
+
+p {
+  margin: 10px;
 }
