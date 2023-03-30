@@ -4,7 +4,7 @@ import MessageContext from './message-context';
 const DummyMessages = [
   {
     id: 'm1',
-    isUser: true,
+    isUser: false,
     messageText: 'Hey buddy, ask me anything. 😎',
   },
   // {
