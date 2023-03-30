@@ -5,23 +5,23 @@ const DummyMessages = [
   {
     id: 'm1',
     isUser: true,
-    messageText: 'Hello',
+    messageText: 'Hey buddy, ask me anything. 😎',
   },
-  {
-    id: 'm2',
-    isUser: false,
-    messageText: 'Yes, how can I help you?',
-  },
-  {
-    id: 'm3',
-    isUser: true,
-    messageText: 'Can you tell me who is Akhil?',
-  },
-  {
-    id: 'm4',
-    isUser: false,
-    messageText: 'Akhil is a boy who lives in his own world!',
-  },
+  // {
+  //   id: 'm2',
+  //   isUser: false,
+  //   messageText: 'Yes, how can I help you?',
+  // },
+  // {
+  //   id: 'm3',
+  //   isUser: true,
+  //   messageText: 'Can you tell me who is Akhil?',
+  // },
+  // {
+  //   id: 'm4',
+  //   isUser: false,
+  //   messageText: 'Akhil is a boy who lives in his own world!',
+  // },
 ];
 
 const MessageProvider = (props) => {
