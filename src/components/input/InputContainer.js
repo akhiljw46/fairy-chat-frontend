@@ -44,7 +44,7 @@ const InputContainer = () => {
         }, 1000 * 60 * 2);
 
         const data = await response.json();
-        setIsLoading(false);
+
         clearTimeout(reqestTimeoutTimer);
         messageCtx.addMessage({
           id: Date.now(),
@@ -54,11 +54,12 @@ const InputContainer = () => {
       } catch (err) {
         setError(err.message);
         console.log('Something went Wrong!', error);
-        setIsLoading(false);
       }
     };
-    if (messageCtx.messages[messageCtx.messages.length - 1].isUser)
-      fetchMessage();
+    if (messageCtx.messages[messageCtx.messages.length - 1].isUser && !error) {
+      setIsLoading(true);
+      fetchMessage().then(() => setIsLoading(false));
+    }
   }, [messageCtx, error]);
 
   const submitHandler = async (event) => {
