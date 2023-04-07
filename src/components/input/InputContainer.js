@@ -21,7 +21,9 @@ const InputContainer = () => {
         'https://fairy-chat.cyclic.app/v1/message/',
         {
           method: 'POST',
-          body: JSON.stringify({ message }),
+          body: JSON.stringify({
+            messages: [{ messageText: message, isUser: true }],
+          }),
           headers: {
             'Content-Type': 'application/json',
           },
