@@ -50,3 +50,7 @@
 p {
   margin: 10px;
 }
+
+.loading {
+  width: 2rem;
+}

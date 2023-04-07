@@ -1,9 +1,23 @@
 import classes from './ChatBubble.module.css';
+import { ReactComponent as Loading } from '../../images/loading.svg';
 
 const ChatBubble = (props) => {
-  const messageContent = props.text
-    .split('\n')
-    .map((para) => <p key={Math.random()}>{para}</p>);
+  let messageContent;
+
+  if (props.type === 'text')
+    messageContent = (
+      <div className={classes['out-para']}>
+        {props.text.split('\n').map((para) => (
+          <p key={Math.random()}>{para}</p>
+        ))}
+      </div>
+    );
+  if (props.type === 'loading')
+    messageContent = (
+      <div className={classes['out-para']}>
+        <Loading className={classes.loading} />
+      </div>
+    );
 
   return (
     <li
@@ -11,7 +25,7 @@ const ChatBubble = (props) => {
         props.isUser ? classes.user : classes.ai
       }`}
     >
-      <div className={classes['out-para']}>{messageContent}</div>
+      {messageContent}
     </li>
   );
 };
