@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import MessageContext from '../utils/message-context';
 import InputText from './InputText';
@@ -13,42 +13,53 @@ const InputContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchMessage = async (message) => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(
-        'https://fairy-chat.cyclic.app/v1/message/',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            messages: [{ messageText: message, isUser: true }],
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
+  useEffect(() => {
+    console.log(messageCtx.messages);
+
+    const fetchMessage = async () => {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(
+          'https://fairy-chat.cyclic.app/v1/message/',
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              messages: messageCtx.messages,
+              // messages: [{ messageText: message, isUser: true }],
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Request failed!');
         }
-      );
 
-      if (!response.ok) {
-        throw new Error('Request failed!');
-      }
+        const reqestTimeoutTimer = setTimeout(() => {
+          setIsLoading(false);
+          throw new Error('Request Timeout');
+        }, 1000 * 60 * 2);
 
-      const reqestTimeoutTimer = setTimeout(() => {
+        const data = await response.json();
         setIsLoading(false);
-        throw new Error('Request Timeout');
-      }, 1000 * 60 * 2);
-
-      const data = await response.json();
-      setIsLoading(false);
-      clearTimeout(reqestTimeoutTimer);
-      return data.message;
-    } catch (err) {
-      setError(err.message);
-      console.log('Something went Wrong!', error);
-      setIsLoading(false);
-    }
-  };
+        clearTimeout(reqestTimeoutTimer);
+        messageCtx.addMessage({
+          id: Date.now(),
+          isUser: false,
+          messageText: data.message,
+        });
+      } catch (err) {
+        setError(err.message);
+        console.log('Something went Wrong!', error);
+        setIsLoading(false);
+      }
+    };
+    if (messageCtx.messages[messageCtx.messages.length - 1].isUser)
+      fetchMessage();
+  }, [messageCtx, error]);
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -61,13 +72,6 @@ const InputContainer = () => {
       messageText,
     });
     inputRef.current.value = '';
-    const aiResponse = await fetchMessage(messageText);
-
-    messageCtx.addMessage({
-      id: Date.now(),
-      isUser: false,
-      messageText: aiResponse,
-    });
   };
 
   return (
