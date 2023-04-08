@@ -14,7 +14,7 @@ const InputContainer = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log(messageCtx.messages);
+    // console.log(messageCtx.messages);
 
     const fetchMessage = async () => {
       setIsLoading(true);
