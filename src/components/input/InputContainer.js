@@ -54,6 +54,11 @@ const InputContainer = () => {
       } catch (err) {
         setError(err.message);
         console.log('Something went Wrong!', error);
+        messageCtx.addMessage({
+          id: Date.now(),
+          isUser: false,
+          messageText: "Sorry, I'm too busy to talk now 🥵",
+        });
       }
     };
     if (messageCtx.messages[messageCtx.messages.length - 1].isUser && !error) {
